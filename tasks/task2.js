@@ -11,25 +11,43 @@ const students = [
 // 1. getTopScoringStudents
 // Приймає масив студентів та повертає масив імен студентів, які мають оцінку більше 80
 function getTopScoringStudents(students) {
-  // Ваш код тут
+  let topStudents = [];
+  
+  for (let student of students) {
+    if (student.score > 80) {
+      topStudents.push(student.name);
+    }
+  }
+
+  return topStudents;
 }
 
 // 2. getAverageAge
 // Приймає масив студентів та повертає середній вік студентів
 function getAverageAge(students) {
-  // Ваш код тут
+  let studentCount = 0;
+  let ageSum = 0;
+
+  for (let student of students) {
+    studentCount++;
+    ageSum += student.age;
+  }
+
+  return ageSum / studentCount;
 }
 
 // 3. addStudent
 // Приймає масив студентів та новий об'єкт студента і додає його до масиву
 function addStudent(students, student) {
-  // Ваш код тут
+  students.push(student);
+  return students;
 }
 
 // 4. removeStudentByName
 // Приймає масив студентів та ім'я студента, якого потрібно видалити, і повертає новий масив без цього студента
 function removeStudentByName(students, name) {
-  // Ваш код тут
+   return students.filter(student => student.name !== name);
 }
+
 
 module.exports = { getTopScoringStudents, getAverageAge, addStudent, removeStudentByName };
