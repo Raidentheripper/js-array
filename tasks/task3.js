@@ -1,11 +1,18 @@
-// З масива людей(people) Вам потрібно знайти людину за іменем(name)
+// Оголошуємо функцію findByName, яка приймає два аргументи:
+// 1. people - масив об'єктів (людей)
+// 2. name - рядок, ім'я людини, яку потрібно знайти
 function findByName(people, name) {
-  for (const person of people) {
-    if (person.name === name) {
-      return person;
-    }
-  }
-  return undefined;
+  // Використовуємо цикл 'for...of' для ітерації по кожному об'єкту 'person' у масиві 'people'
+  for (const person of people) {
+    // Перевіряємо, чи властивість 'name' поточного об'єкта 'person'
+    // суворо дорівнює (===) значенню, переданому в аргументі 'name'
+    if (person.name === name) {
+      // Якщо збіг знайдено, негайно повертаємо *весь* об'єкт 'person'
+      return person;
+    }
+  }
+  // Якщо цикл завершився (тобто ми перебрали всіх людей),
+  // повертаємо 'undefined', щоб вказати на відсутність результату
+  return undefined;
 }
-
 module.exports = findByName;
